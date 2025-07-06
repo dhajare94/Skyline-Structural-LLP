@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -15,8 +14,7 @@ import {
   CheckCircle,
   Phone,
   Mail,
-  Camera,
-  Image as ImageIcon
+  Camera
 } from 'lucide-react';
 
 const Home = () => {
@@ -110,66 +108,65 @@ const Home = () => {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-20">
-        {/* Background Image - Replace with your hero image */}
-        <div className="absolute inset-0 z-0">
-          <div className="w-full h-full bg-slate-200 flex items-center justify-center">
-            {/* Placeholder for your hero background image */}
-            <div className="text-center p-8 bg-white/90 rounded-lg">
-              <Camera className="w-16 h-16 text-slate-400 mx-auto mb-4" />
-              <p className="text-slate-600 font-medium">Add Your Hero Background Image Here</p>
-              <p className="text-sm text-slate-500 mt-2">Recommended: 1920x1080px construction site image</p>
-            </div>
+  {/* Hero Section */}
+  <section className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-20">
+    {/* Background Image */}
+    <div className="absolute inset-0 z-0">
+      <div
+        className="w-full h-full bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg')", // ← Paste your background image link here
+        }}
+      />
+      <div className="absolute inset-0 bg-slate-900/70" />
+    </div>
+
+    {/* Content */}
+    <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Company Logo Section */}
+        <div className="mb-8">
+          <div className="w-32 h-32 mx-auto bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4">
+            <img
+              src="https://8upload.com/image/686a62261571b/Untitled_design.png" // ← Paste your company logo link here
+              alt="Company Logo"
+              className="w-16 h-16 object-contain"
+            />
           </div>
-          <div className="absolute inset-0 bg-slate-900/70" />
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          Designed to Inspire.<br />
+          <span className="text-blue-400">Built to Last.</span>
+        </h1>
+        <p className="text-xl sm:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto">
+          Where Structures Rise and Visions Live
+        </p>
+        <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
+          Multi-division construction company specializing in RCC solutions, 
+          painting services, paint manufacturing, and interior design with unmatched precision and quality.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            to="/services"
+            className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors group"
           >
-            {/* Company Logo Section */}
-            <div className="mb-8">
-              <div className="w-32 h-32 mx-auto bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4">
-                <div className="text-center">
-                  <ImageIcon className="w-12 h-12 text-white/60 mx-auto mb-2" />
-                  <p className="text-white/80 text-sm">Company Logo</p>
-                </div>
-              </div>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Designed to Inspire.<br />
-              <span className="text-blue-400">Built to Last.</span>
-            </h1>
-            <p className="text-xl sm:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto">
-              Where Structures Rise and Visions Live
-            </p>
-            <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
-              Multi-division construction company specializing in RCC solutions, 
-              painting services, paint manufacturing, and interior design with unmatched precision and quality.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/services"
-                className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors group"
-              >
-                Explore Our Services
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-slate-900 transition-colors"
-              >
-                Get Free Quote
-              </Link>
-            </div>
-          </motion.div>
+            Explore Our Services
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <Link
+            to="/contact"
+            className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-slate-900 transition-colors"
+          >
+            Get Free Quote
+          </Link>
         </div>
+      </motion.div>
+    </div>
 
         {/* Scroll indicator */}
         <motion.div
@@ -189,102 +186,133 @@ const Home = () => {
       </section>
 
       {/* Company Introduction */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
-                Building Excellence Since 2009
-              </h2>
-              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                Skyline Structural LLP stands as a premier multi-division construction company, 
-                delivering comprehensive solutions across four specialized domains. From robust 
-                RCC structures to exquisite interior designs, we bring your vision to life with 
-                precision and artistry.
-              </p>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                With over 15 years of industry expertise and 500+ successful projects, 
-                we have established ourselves as the trusted partner for construction 
-                excellence across Maharashtra and beyond.
-              </p>
-              <Link
-                to="/about"
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors group"
-              >
-                Learn More About Us
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              {/* Company Photo Placeholder */}
-              <div className="bg-slate-100 rounded-lg shadow-xl h-96 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Camera className="w-16 h-16 text-slate-400 mx-auto mb-4" />
-                  <p className="text-slate-600 font-medium mb-2">Add Company Photo Here</p>
-                  <p className="text-sm text-slate-500">Office building, team photo, or construction site</p>
-                  <p className="text-sm text-slate-500">Recommended: 800x600px</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+<section className="py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
+          Building Excellence Since 2009
+        </h2>
+        <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+          Skyline Structural LLP stands as a premier multi-division construction company, 
+          delivering comprehensive solutions across four specialized domains. From robust 
+          RCC structures to exquisite interior designs, we bring your vision to life with 
+          precision and artistry.
+        </p>
+        <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+          With over 15 years of industry expertise and 150+ successful projects, 
+          we have established ourselves as the trusted partner for construction 
+          excellence across Maharashtra and beyond.
+        </p>
+        <Link
+          to="/about"
+          className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors group"
+        >
+          Learn More About Us
+          <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </Link>
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="relative"
+      >
+        {/* Company Image Placeholder */}
+        <div className="bg-slate-100 rounded-lg shadow-xl h-96 overflow-hidden">
+          <img
+            src="https://images.pexels.com/photos/3184416/pexels-photo-3184416.jpeg" // ← Paste your image link here (e.g. office, team, construction site)
+            alt="Company"
+            className="w-full h-full object-cover"
+          />
         </div>
-      </section>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
 
       {/* Company Logos/Certifications Section */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
-              Certifications & Partnerships
-            </h2>
-            <p className="text-slate-600">
-              Trusted by industry leaders and certified for excellence
-            </p>
-          </motion.div>
+<section className="py-16 bg-slate-50 overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-12"
+    >
+      <h2 className="text-2xl font-bold text-slate-900 mb-4">
+        Certifications & Partnerships
+      </h2>
+      <p className="text-slate-600">
+        Trusted by industry leaders and certified for excellence
+      </p>
+    </motion.div>
 
-          {/* Logo Grid - Replace with your certification/partner logos */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: item * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow flex items-center justify-center h-24"
-              >
-                <div className="text-center">
-                  <ImageIcon className="w-8 h-8 text-slate-300 mx-auto mb-1" />
-                  <p className="text-xs text-slate-400">Logo {item}</p>
-                </div>
-              </motion.div>
-            ))}
+    {/* Auto-Swiping Logo Carousel */}
+    <div className="relative w-full overflow-hidden">
+      <div className="flex gap-8 animate-scroll-left whitespace-nowrap">
+        {[...Array(9)].map((_, idx) => (
+          <div
+            key={idx}
+            className="flex-shrink-0 bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow flex items-center justify-center h-24 w-40"
+          >
+            <img
+              src="https://www.sunteckindia.com/images/footerlogo.svg"
+              alt={`Logo ${idx + 1}`}
+              className="max-h-12 object-contain mx-auto"
+            />
+            <img
+              src="https://d1hbpr09pwz0sk.cloudfront.net/logo_url/vtp-realty-c30e7c11"
+              alt={`Logo ${idx + 2}`}
+              className="max-h-12 object-contain mx-auto"
+            />
+            <img
+              src="https://www.canva.com/design/DAGsY5BPwbA/QGEJ0vzamKG4UdSayYpzTQ/view"
+              alt={`Logo ${idx + 3}`}
+              className="max-h-12 object-contain mx-auto"
+            />
+            <img
+              src="LOGO_IMAGE_URL"
+              alt={`Logo ${idx + 1}`}
+              className="max-h-12 object-contain mx-auto"
+            />
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>{`
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-scroll-left {
+    animation: scroll-left 30s linear infinite;
+  }
+`}</style>
+
 
       {/* Statistics Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
